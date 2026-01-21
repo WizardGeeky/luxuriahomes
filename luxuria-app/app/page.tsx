@@ -1,8 +1,11 @@
+import React from 'react'
+
+import Nav from './components/nav/nav';
 
 export default function Home() {
   return (
-    <div>
-      <h1>Development Inprogress!!</h1>
-    </div>
+    <>
+      <Nav />
+    </>
   );
 }
