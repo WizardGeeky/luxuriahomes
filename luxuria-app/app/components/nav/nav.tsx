@@ -30,14 +30,16 @@ export default function Nav() {
   return (
     <nav className="fixed w-full z-50 top-0 left-0 bg-[#001f30] border-b border-[#fff0a9]/20 shadow-xl">
       <div className="w-11/12 lg:w-10/12 mx-auto px-2 lg:px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-20 ">
           {/* Logo Section */}
           <div className="shrink-0">
-            <Link href="/" className="flex flex-col items-end group">
-              {/* Main Logo */}
-              <h1 className="text-[rgb(255,240,169)] font-bold text-2xl lg:text-4xl logo-text gap-3">
+            <Link href="/" className="flex flex-col items-start group">
+              <h1 className="text-[#fff0a9] font-black text-4xl tracking-tighter leading-none logo-text">
                 Luxuria
               </h1>
+              <span className="text-[#fff0a9] font-medium text-[10px] tracking-[0.4em] uppercase leading-none mt-1 opacity-80">
+                homes
+              </span>
             </Link>
           </div>
 
@@ -105,9 +107,7 @@ export default function Nav() {
             >
               {/* Drawer Header */}
               <div className="flex justify-between items-center p-6 border-b border-[#fff0a9]/10">
-                <span className="text-[#fff0a9] text-[10px] tracking-[0.3em] font-bold opacity-50">
-                  NAVIGATION
-                </span>
+                <span className="text-[#fff0a9] text-[10px] tracking-[0.3em] font-bold opacity-50"></span>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-[#fff0a9] text-3xl active:rotate-90 transition-transform duration-300"
@@ -128,7 +128,7 @@ export default function Nav() {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-[#fff0a9] text-lg uppercase tracking-[0.2em] font-light block hover:translate-x-2 transition-transform duration-300"
+                      className="text-[#fff0a9] text-sm uppercase tracking-[0.2em] font-light block hover:translate-x-2 transition-transform duration-300"
                     >
                       {link.name}
                     </Link>
