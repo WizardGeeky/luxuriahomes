@@ -65,7 +65,12 @@ export default function Projects() {
           <h2 className="text-[#001f30] text-3xl md:text-4xl font-black tracking-tight uppercase">
             Completed Projects
           </h2>
-          <div className="h-1.5 w-16 bg-[#fff0a9] mt-3" />
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 90 }}
+            viewport={{ once: true }}
+            className="h-0.75 bg-linear-to-r from-[#fff0a9] to-[#001f30] mt-6 rounded-full"
+          />
         </div>
 
         {/* FEATURED COMPLETED PROJECT HERO */}
@@ -137,7 +142,12 @@ export default function Projects() {
           <h2 className="text-[#001f30] text-3xl md:text-4xl font-black tracking-tight uppercase">
             Current Projects
           </h2>
-          <div className="h-1.5 w-16 bg-[#fff0a9] mt-3" />
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 90 }}
+            viewport={{ once: true }}
+            className="h-0.75 bg-linear-to-r from-[#fff0a9] to-[#001f30] mt-6 rounded-full"
+          />
         </div>
 
         {/* CURRENT PROJECTS GRID */}

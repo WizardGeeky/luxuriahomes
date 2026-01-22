@@ -47,20 +47,28 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="text-[#001f30] text-4xl md:text-8xl font-black tracking-tighter uppercase leading-none"
           >
-            ABOUT{" "}
-            <span className="text-[#fff0a9] italic font-serif font-light">
-              US
-            </span>
+            ABOUT US
           </motion.h2>
         </div>
 
         {/* INTRO PARAGRAPH: Editorial Style */}
-        <div className="max-w-4xl mb-24 md:mb-32">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <div className="max-w-4xl mb-24 md:mb-32 flex items-stretch gap-6 md:gap-10">
+          {/* Vertical Animated Line */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
             viewport={{ once: true }}
-            className="text-[#001f30] text-xl md:text-4xl font-light italic font-serif leading-tight border-l-4 border-[#fff0a9] pl-6 md:pl-10"
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="w-6 md:w-1.5 bg-linear-to-b from-[#fff0a9] to-[#001f30] rounded-full origin-top"
+          />
+
+          {/* Text */}
+          <motion.p
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-[#001f30] text-xl md:text-4xl font-light italic font-serif leading-tight pl-2 md:pl-4"
           >
             "We transform visions into reality. With a passion for precision and
             a commitment to excellence, we are your trusted partner in the world
@@ -124,12 +132,19 @@ export default function About() {
                 transition={{ delay: i * 0.1 }}
                 className="relative group"
               >
-                <div className="text-[#001f30]/5 text-7xl font-black  transition-colors group-hover:text-[#fff0a9]/30">
-                  {feature.number}
+                {/* Number with vertical gradient on hover */}
+                <div className="text-7xl font-black text-[#001f30]/5 relative z-0">
+                  <span className="block transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-linear-to-b from-[#fff0a9] to-[#001f30]">
+                    {feature.number}
+                  </span>
                 </div>
+
+                {/* Title */}
                 <h4 className="text-[#001f30] font-bold text-sm tracking-widest uppercase mb-4 relative z-10">
                   {feature.title}
                 </h4>
+
+                {/* Description */}
                 <p className="text-[#001f30]/60 text-xs md:text-sm leading-relaxed font-light">
                   {feature.desc}
                 </p>
