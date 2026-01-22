@@ -36,8 +36,23 @@ export default function Contact() {
           </span>
           <h1 className="text-[#001f30] text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-tight">
             Let’s Build Your <br className="md:hidden" />
-            <span className="italic font-serif font-light underline decoration-[#fff0a9] decoration-2 md:decoration-4 underline-offset-4 md:underline-offset-8">
+            <span className="relative inline-block italic font-serif font-light">
               Legacy
+              {/* Horizontal animated line */}
+              <motion.span
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="
+        absolute
+        left-0
+        -bottom-1 md:-bottom-3
+        h-0.75 md:h-1.25
+        bg-linear-to-r from-[#fff0a9] to-[#001f30]
+        rounded-full
+      "
+              />
             </span>
           </h1>
         </motion.div>

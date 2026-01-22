@@ -159,7 +159,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group flex flex-col h-full border border-gray-100"
+              className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all group flex flex-col h-full border border-gray-400"
             >
               <div className="relative h-56 overflow-hidden">
                 <img
