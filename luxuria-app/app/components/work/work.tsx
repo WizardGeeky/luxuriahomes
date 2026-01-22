@@ -4,8 +4,8 @@ import { Globe } from "@/components/ui/globe";
 import type { COBEOptions } from "cobe";
 
 const countries = [
-  { name: "India", className: "top-6 left-1/2 -translate-x-1/2" },
-  { name: "Australia", className: "bottom-10 left-8" },
+  { name: "India", className: "top-10 left-10" },
+  { name: "Australia", className: "bottom-10 left-10" },
 ];
 
 export default function Work() {
