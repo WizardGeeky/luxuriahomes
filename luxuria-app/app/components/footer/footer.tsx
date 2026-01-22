@@ -16,7 +16,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#001f30] border-t border-[#fff0a9]/20 pt-16 pb-8 mt-16">
+    <footer className="w-full bg-[#001f30] border-t border-[#fff0a9]/20 pt-16 pb-8">
       <div className="w-11/12 lg:w-10/12 mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Section 1: Brand Identity */}
@@ -102,30 +102,54 @@ export default function Footer() {
               <div className="flex items-center space-x-3 text-[#fff0a9]/70">
                 <HiOutlineLocationMarker className="text-[#fff0a9] text-lg" />
                 <span className="text-sm">
-                  123 Luxury Way, Beverly Hills, CA
+                  Unit 7, 21 Technology Drive Agustine Heights, QLD, 4300
                 </span>
               </div>
               <div className="flex items-center space-x-3 text-[#fff0a9]/70">
                 <HiOutlinePhone className="text-[#fff0a9] text-lg" />
-                <span className="text-sm">+1 (555) Lux-Home</span>
+                <span className="text-sm">
+                  +61 433 196 100, +61 482 794 242
+                </span>
               </div>
               <div className="flex items-center space-x-3 text-[#fff0a9]/70">
                 <HiOutlineMail className="text-[#fff0a9] text-lg" />
-                <span className="text-sm">concierge@luxuria.com</span>
+                <span className="text-sm">admin@luxuriahomes.au</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#fff0a9]/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-[#fff0a9]/40 text-[10px] uppercase tracking-[0.2em]">
-            © {currentYear} Luxuria Homes. All Rights Reserved.
-          </p>
-          <p className="text-[#fff0a9]/40 text-[10px] uppercase tracking-[0.2em]">
-            Design by{" "}
-            <span className="text-[#fff0a9]/70 font-bold">PremiumUI</span>
-          </p>
+        <div className="pt-5 border-t border-[#fff0a9]/10 mt-20">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-3">
+            {/* Left: License Info with a subtle dot separator */}
+            <div className="flex items-center gap-4">
+              <p className="text-[#fff0a9]/40 text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-medium">
+                QBCC License:{" "}
+                <span className="text-[#fff0a9]/60">15405403</span>
+              </p>
+            </div>
+
+            {/* Center: Copyright - Elegant & Minimal */}
+            <p className="text-[#fff0a9]/30 text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-light">
+              © 2026 Luxuria Homes{" "}
+              <span className="mx-2 md:mx-4 opacity-20">|</span> All Rights
+              Reserved
+            </p>
+
+            {/* Right: Credits with a signature animation */}
+            <div className="flex items-center">
+              <p className="text-[#fff0a9]/40 text-[10px] md:text-[11px] uppercase tracking-[0.3em]">
+                CRAFTED BY{" "}
+                <a
+                  href="https://eswarb.vercel.app/"
+                  className="text-[#fff0a9]/80 font-black cursor-pointer ml-1 transition-all"
+                >
+                  ESWAR
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

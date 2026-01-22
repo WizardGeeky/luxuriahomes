@@ -2,21 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const navLinks = [
-  { name: "Home", href: "/" },
+  { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Contact", href: "#contact" },
+  { name: "Projects", href: "#projects" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Contact", href: "#contacts" },
+  { name: "About", href: "#about" },
 ];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Close mobile menu if window is resized to desktop width
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -59,12 +59,21 @@ export default function Nav() {
 
           {/* Desktop CTA - Hidden on Mobile */}
           <div className="hidden md:block">
-            <button className="relative overflow-hidden px-8 py-2.5 bg-transparent border border-[#fff0a9] text-[#fff0a9] text-xs font-bold uppercase tracking-widest rounded-sm group transition-all duration-300">
+            <a
+              href="#contacts"
+              className="relative group overflow-hidden px-10 py-3.5 bg-transparent border border-[#fff0a9] text-[#fff0a9] text-[11px] font-bold uppercase tracking-[0.2em] rounded-sm transition-all duration-500 ease-out hover:border-transparent inline-block shadow-[0_0_0_0_rgba(255,240,169,0)] hover:shadow-[0_10px_20px_-10px_rgba(255,240,169,0.3)]"
+            >
+              {/* The Slide-in Background */}
+              <span className="absolute inset-0 w-0 bg-[#fff0a9] transition-all duration-[400px] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full" />
+
+              {/* The Shimmer Effect (Optional but adds "Lux" feel) */}
+              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
+
+              {/* Button Text */}
               <span className="relative z-10 transition-colors duration-300 group-hover:text-[#001f30]">
                 Get Started
               </span>
-              <span className="absolute inset-0 bg-[#fff0a9] translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle - Hidden on Desktop */}
@@ -138,9 +147,9 @@ export default function Nav() {
 
               {/* Drawer Footer */}
               <div className="mt-auto p-8 bg-[#001b2a]">
-                <button className="w-full py-4 bg-[#fff0a9] text-[#001f30] text-xs font-black uppercase tracking-[0.2em] transition-transform active:scale-95 shadow-lg">
+                <a className="w-full px-4 py-2 bg-[#fff0a9] text-[#001f30] text-xs font-black uppercase tracking-[0.2em] transition-transform active:scale-95 shadow-lg">
                   Get Started
-                </button>
+                </a>
               </div>
             </motion.div>
           </>
