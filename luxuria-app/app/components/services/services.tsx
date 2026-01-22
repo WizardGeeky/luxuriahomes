@@ -1,141 +1,171 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
+import { WobbleCard } from "@/components/ui/wobble-card";
 
 const services = [
   {
-    title: "RESIDENTIAL CONSTRUCTION",
-    desc: "From custom homes to renovations, we turn your residential dreams into reality.",
+    title: "Residential Construction",
+    desc: "Luxury custom homes and refined renovations crafted with precision and timeless quality.",
     icon: "H",
   },
   {
-    title: "COMMERCIAL PROJECTS",
-    desc: "Our portfolio includes a wide range of commercial spaces, from offices to retail and hospitality.",
+    title: "Commercial Projects",
+    desc: "High-performance commercial spaces designed for modern business and long-term value.",
     icon: "C",
   },
   {
-    title: "INDUSTRIAL EXPERTISE",
-    desc: "We specialize in industrial construction, offering solutions that drive efficiency and growth.",
+    title: "Industrial Expertise",
+    desc: "Efficient, scalable industrial construction that supports growth and operational excellence.",
     icon: "I",
   },
   {
-    title: "RENOVATIONS & EXTENSIONS",
-    desc: "Transforming existing spaces with high-end finishes and structural enhancements that add lasting value.",
+    title: "Renovations & Extensions",
+    desc: "Thoughtful upgrades and extensions that enhance structure, space, and property value.",
     icon: "R",
   },
   {
-    title: "PROJECT MANAGEMENT",
-    desc: "Seamless end-to-end oversight ensuring your build stays on schedule, on budget, and up to code.",
+    title: "Project Management",
+    desc: "End-to-end project delivery with strict timelines, budgets, and compliance assurance.",
     icon: "P",
   },
   {
-    title: "INTERIOR DESIGN",
-    desc: "Curating bespoke interiors that balance luxury aesthetics with functional, modern living.",
+    title: "Interior Design",
+    desc: "Bespoke interiors blending luxury aesthetics with functional, modern living.",
     icon: "D",
   },
 ];
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
-      staggerChildren: 0.15, // Faster stagger for more items
+      staggerChildren: 0.12,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 export default function Services() {
   return (
-    <div className="bg-[#f8f9fa] min-h-screen py-24" id="services">
-      <div className="w-11/12 lg:w-10/12 mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-20">
-          <motion.h1
+    <section
+      id="services"
+      className="relative bg-[#f7f9fb] py-28 overflow-hidden"
+    >
+      {/* Background Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,240,169,0.25),transparent_60%)] pointer-events-none" />
+
+      <div className="relative w-11/12 lg:w-10/12 mx-auto">
+        {/* Header */}
+        <div className="text-center mb-24">
+          <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#001f30] text-4xl md:text-6xl font-black tracking-tighter uppercase mb-4"
+            className="text-[#001f30] text-4xl md:text-6xl font-extrabold tracking-tight uppercase"
           >
-            Our Services
-          </motion.h1>
+            Our Expertise
+          </motion.h2>
+
           <motion.div
             initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
+            whileInView={{ width: 90 }}
             viewport={{ once: true }}
-            className="h-1 bg-[#fff0a9] mx-auto"
+            className="h-0.75 bg-linear-to-r from-[#fff0a9] to-[#001f30] mx-auto mt-6 rounded-full"
           />
+
+          <p className="mt-8 max-w-2xl mx-auto text-[#001f30]/60 text-sm md:text-base leading-relaxed">
+            Delivering premium construction solutions with uncompromising
+            quality, innovation, and attention to detail.
+          </p>
         </div>
 
-        {/* Services Grid - Now 3 columns on desktop, 2 on tablet */}
+        {/* Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
         >
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              className="bg-white p-8 md:p-10 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col items-center text-center group transition-all hover:shadow-2xl hover:border-[#fff0a9]/50"
-            >
-              {/* Animated Icon Circle */}
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#001f30] text-[#fff0a9] flex items-center justify-center text-xl md:text-2xl font-black mb-8 group-hover:scale-110 group-hover:bg-[#fff0a9] group-hover:text-[#001f30] transition-all duration-300">
-                {service.icon}
-              </div>
+            <motion.div key={index}>
+              <WobbleCard
+                containerClassName="rounded-xl"
+                className="
+                  relative h-full
+                  rounded-3xl
+                  p-10
+                  shadow-[0_30px_80px_rgba(0,0,0,0.08)]
+                  transition-all"
+              >
+                {/* Accent Line */}
 
-              <h3 className="text-[#001f30] text-lg md:text-xl font-black tracking-tight mb-4 leading-tight">
-                {service.title}
-              </h3>
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-[#001f30] text-[#fff0a9] flex items-center justify-center text-2xl font-black mb-8">
+                  {service.icon}
+                </div>
 
-              <div className="h-0.5 w-12 bg-[#fff0a9] mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Content */}
+                <h3 className="text-[#001f30] text-xl font-extrabold mb-4 tracking-tight">
+                  {service.title}
+                </h3>
 
-              <p className="text-[#001f30]/70 text-sm md:text-base leading-relaxed font-light">
-                {service.desc}
-              </p>
+                <p className="text-[#001f30]/65 text-sm leading-relaxed">
+                  {service.desc}
+                </p>
 
-              {/* Advanced Decorative Detail */}
-              <div className="mt-8 overflow-hidden w-full">
-                <motion.div
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{
-                    duration: 1.2,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="h-px bg-linear-to-r from-transparent via-[#fff0a9] to-transparent"
-                />
-              </div>
+                {/* Footer Detail */}
+                <div className="mt-10 flex items-center gap-3 text-xs font-bold tracking-widest text-[#001f30]/40 uppercase">
+                  Premium Build
+                </div>
+              </WobbleCard>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Bottom Call to Action */}
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-24 text-center"
+          transition={{ delay: 0.4 }}
+          className="mt-28 text-center"
         >
-          <p className="text-[#001f30]/50 uppercase tracking-[0.3em] text-[10px] md:text-xs font-bold mb-6">
-            Ready to start your next project?
+          <p className="uppercase tracking-[0.35em] text-xs text-[#001f30]/50 font-semibold mb-8">
+            Start Your Project With Confidence
           </p>
-          <a href="#contacts" className="bg-[#001f30] text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold tracking-widest text-xs md:text-sm hover:bg-[#fff0a9] hover:text-[#001f30] transition-all duration-300 shadow-xl active:scale-95">
-            GET A QUOTE
+
+          <a
+            href="#contacts"
+            className="
+              inline-block
+              bg-[#001f30]
+              text-white
+              px-12 py-4
+              rounded-full
+              text-sm
+              font-bold
+              tracking-widest
+              hover:bg-[#fff0a9]
+              hover:text-[#001f30]
+              transition-all
+              shadow-2xl
+              active:scale-95
+            "
+          >
+            Request Consultation
           </a>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
